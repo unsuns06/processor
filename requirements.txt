@@ -1,0 +1,6 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+python-multipart==0.0.9
+PyDrive2==1.21.3
+aiohttp==3.10.8
+packaging>=23.1

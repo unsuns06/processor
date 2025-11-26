@@ -1,0 +1,61 @@
+╔══════════════════════════════════════════════════════════╗
+║  HuggingFace Upload Checklist - Google Drive + RD Setup ║
+╚══════════════════════════════════════════════════════════╝
+
+✅ Testing Complete:
+   • Google Drive upload: WORKING
+   • Real-Debrid unrestrict: WORKING
+   • End-to-end pipeline: VERIFIED
+
+📤 REQUIRED FILES TO UPLOAD:
+
+Core Application:
+[ ] app.py (22,310 bytes) - Modified with GDrive + RD integration
+[ ] requirements.txt (116 bytes) - Updated dependencies
+[ ] Dockerfile (existing) - No changes needed
+
+Google Drive Authentication (ALL THREE REQUIRED):
+[ ] credentials.json (1,551 bytes) ⚠️ CRITICAL - Generated locally
+[ ] settings.yaml (424 bytes) ⚠️ CRITICAL - Auth configuration
+[ ] client_secrets.json (411 bytes) ⚠️ CRITICAL - OAuth credentials
+
+Documentation:
+[ ] README.md (3,379 bytes) - Updated API docs
+[ ] DEPLOYMENT_GUIDE.md (3,462 bytes) - Deployment instructions
+[ ] CHANGES.md (4,188 bytes) - Change log
+
+Optional:
+[ ] example_usage.py (3,682 bytes) - Example API usage
+[ ] authenticate_gdrive.py (728 bytes) - For regenerating credentials
+
+⚠️  CRITICAL NOTES:
+
+1. credentials.json, settings.yaml, and client_secrets.json MUST be in
+   the same directory as app.py or Google Drive upload will fail!
+
+2. If you see "credentials.json not found" error on HuggingFace, make
+   sure you uploaded all three authentication files.
+
+3. The Real-Debrid API key is already configured in app.py.
+
+🎯 EXPECTED WORKFLOW AFTER DEPLOYMENT:
+
+1. User sends POST /process request with stream URL + decryption key
+2. App downloads and decrypts stream (N_m3u8DL-RE)
+3. App converts MKV to MP4 (FFmpeg)
+4. App uploads MP4 to Google Drive ✨ NEW
+5. App unrestricts via Real-Debrid ✨ NEW
+6. User gets JSON response with:
+   - Local stream URL
+   - Google Drive link
+   - Real-Debrid direct link ← FINAL DELIVERABLE
+
+📊 Test Results:
+   • Google Drive Link: https://drive.google.com/file/d/1xXjDlSf8Lk2SnWU4pO5g7jAL2vcC7dTh/view?usp=drivesdk
+   • Real-Debrid Link: https://chi3-4.download.real-debrid.com/d/C6O5UNLHV2DSE42/test_complete.mp4
+   • Status: ✅ BOTH WORKING
+
+═══════════════════════════════════════════════════════════
+Ready to deploy! Upload the checked files above.
+═══════════════════════════════════════════════════════════
+

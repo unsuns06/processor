@@ -1,0 +1,68 @@
+╔══════════════════════════════════════════════════════════╗
+║  HUGGINGFACE UPLOAD CHECKLIST - IMMEDIATE ACTION NEEDED ║
+╚══════════════════════════════════════════════════════════╝
+
+❌ PROBLEM IDENTIFIED:
+Your HuggingFace space is missing the authentication files!
+Server shows only: app.py, requirements.txt, stream/
+But it needs: credentials.json, settings.yaml, client_secrets.json
+
+✅ LOCAL STATUS (All Files Ready):
+   ✅ credentials.json (1.5 KB) - Generated and working
+   ✅ settings.yaml (0.4 KB) - PyDrive2 configuration
+   ✅ client_secrets.json (0.4 KB) - OAuth credentials
+   ✅ app.py (28.5 KB) - Updated with Google Drive integration
+   ✅ requirements.txt (0.1 KB) - Dependencies
+   ✅ Dockerfile (2.2 KB) - Container config
+
+📤 UPLOAD THESE FILES TO HUGGINGFACE NOW:
+
+CRITICAL AUTHENTICATION FILES:
+1. credentials.json (1.5 KB) ← ⚠️ CRITICAL - Server is missing this!
+2. settings.yaml (0.4 KB) ← ⚠️ CRITICAL - Server is missing this!
+3. client_secrets.json (0.4 KB) ← ⚠️ CRITICAL - Server is missing this!
+
+APPLICATION FILES:
+4. app.py (28.5 KB) ← ✅ Already uploaded
+5. requirements.txt (0.1 KB) ← ✅ Already uploaded
+6. Dockerfile (2.2 KB) ← ✅ Already uploaded
+
+═══════════════════════════════════════════════════════════
+
+🚨 IMMEDIATE ACTION REQUIRED:
+
+1. Go to your HuggingFace space
+2. Click "Files" tab
+3. Upload these 3 missing files:
+   - credentials.json
+   - settings.yaml
+   - client_secrets.json
+
+4. Ensure they're in the ROOT directory (same level as app.py)
+
+5. After upload, visit: https://your-space.hf.space/check_gdrive
+   Should show: "status": "success"
+
+═══════════════════════════════════════════════════════════
+
+🔍 WHY THIS HAPPENED:
+- You uploaded app.py and requirements.txt
+- But forgot the Google Drive authentication files
+- The /check_gdrive endpoint confirmed: "json_files": [] (empty!)
+- Dockerfile wasn't copying auth files into container (FIXED ✅)
+
+🔧 ALTERNATIVE: If upload fails, regenerate credentials:
+   python regenerate_credentials.py
+   Then upload the fresh credentials.json
+
+═══════════════════════════════════════════════════════════
+
+✅ DOCKERFILE FIXED! Now includes authentication files:
+   COPY --chown=user credentials.json .
+   COPY --chown=user settings.yaml .
+   COPY --chown=user client_secrets.json .
+
+📤 NEXT: Upload and commit the 3 authentication files to git
+🚀 Then rebuild the space - integration will work perfectly!
+
+═══════════════════════════════════════════════════════════
