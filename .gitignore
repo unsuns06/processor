@@ -20,10 +20,9 @@ wheels/
 .installed.cfg
 *.egg
 
-# Google Drive credentials (these contain secrets and should NOT be in git)
-credentials.json
-client_secrets.json
-settings.yaml
+# Google Drive credentials (required for server deployment)
+# Uncomment the line below only if you want to exclude credentials locally:
+# credentials.json
 
 # Test files
 test_*.mp4
