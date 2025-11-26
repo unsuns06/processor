@@ -27,6 +27,7 @@ wheels/
 # Test files
 test_*.mp4
 test_*.mkv
+Readme.md
 
 # Environment
 .env
